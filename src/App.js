@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import FirstWatchPicture from './images/watch_one.png';
+import SecondWatchPicture from './images/watch_two.png';
+import './styles/app.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="card">
+      <div className="card__cover">
+        <img src={SecondWatchPicture} alt="" />
+      </div>
+      <div className="card__details">
+        <div>
+          <img src={FirstWatchPicture} alt="" />
+          <h3>New Apple Watch</h3>
+          <h2><span>$</span>450</h2>
+          <a href="#!">Buy Now</a>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;

@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #09383e;
+}
+
+.card {
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  transform-style: preserve-3d;
+  transform: perspective(2000px);
+  transition: 1s;
+  box-shadow:inset 300px 0px 50px rgba(0, 0, 0, .15), 0px 20px 20px rgba(0, 0, 0,.15) ;
+}
+.card:hover {
+  cursor: pointer;
+  transform: perspective(2000px) translateX(50%);
+  box-shadow:inset 300px 0px 50px rgba(0, 0, 0, .15), 0px 10px 10px rgba(0, 0, 0,.15) ;
+}
+
+.card__cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: 1s ease-in-out;
+  transform-origin: left;
+}
+.card__cover::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 150%;
+  background-color: #ffffff;
+  transform: rotate(36.5deg);
+  box-shadow: 0 0 0 20px #47bfce;
+  transition: .5s;
+}
+.card:hover .card__cover {
+  transform: rotateY(-180deg);
+}
+.card:hover .card__cover img {
+  transform: scaleY(-1) scaleX(1) rotateZ(-150deg);
+  transition-delay: 0.5s;
+  animation: rotateImage 6s 1s ease-in-out infinite alternate;
+}
+.card:hover .card__cover::before {
+  width: 0;
+  box-shadow: 0 0 0 250px #47bfce;
+  transform: rotate(143.5deg);
+}
+
+.card__cover img {
+  max-width: 100%;
+  max-height: 100%;
+  transform: scaleX(-1);
+  z-index: 1;
+}
+
+.card__details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  text-align: center;
+  overflow: hidden;
+  z-index: 1;
+}
+.card__details img {
+  max-width: 70%;
+  max-height: 70%;
+}
+.card__details h3 {
+  font-weight: 500;
+  margin: 5px 0;
+}
+.card__details h2 {
+  font-size: 1.5em;
+  color: #e82a5b;
+  font-weight: 600;
+}
+.card__details h2 span {
+  padding-right: 2px;
+}
+
+.card__details a {
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #47bfce;
+  text-decoration: none;
+  border-radius: 25px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  color: #ffffff;
+  font-weight: 500;
+}
+@keyframes rotateImage {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
